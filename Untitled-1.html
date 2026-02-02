@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krokan Broaster - Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables de color */
+        :root {
+            --negro: #1a1a1a;
+            --gris-oscuro: #2d2d2d;
+            --amarillo: #ffcc00;
+            --blanco: #ffffff;
+        }
+
+        /* Reseteo básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--negro);
+            /* Nuevo fondo con textura oscura y bordes amarillos */
+            background-image: url('https://cdn.discordapp.com/attachments/1461594379855859752/1467996073132953714/AOI_d__mVy1LVwHOaPX9R0V9ugFcEHgFpFGNuHUXKNTpN5nOMqZ-Sod2SIV46s3veBbkjhmQl-bC1Ibeh1bMezhkil6SN-8GjzdDNTqbot0kp1HcJZt6f6ONiW3CTG6m1koSgNUnYvnbbeRMa7vhW7HJPVCnbX9oWbGS0f_YhRP9MHlIKZW6s1024-rj.png?ex=69826961&is=698117e1&hm=92e521fbdde61002b6730bea5062248315c57d28181a0f8761d3c5f90f047ed6&');
+            background-attachment: fixed;
+            background-size: cover;
+            color: var(--blanco);
+            padding-bottom: 90px; /* Espacio para el navbar inferior */
+        }
+
+        /* Header con Título Grande (Cambio 1) */
+        header {
+            padding: 30px 15px 10px;
+            text-align: center;
+        }
+
+        .main-title {
+            color: var(--amarillo);
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* Banner Principal */
+        .hero-banner {
+            background: var(--amarillo);
+            color: var(--negro);
+            padding: 15px;
+            text-align: center;
+            margin: 15px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+        }
+
+        /* Secciones y Títulos */
+        .main-section-title {
+            padding: 10px 15px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-header {
+            padding: 10px 15px 10px;
+        }
+
+        .section-header h3 { 
+            font-size: 1.2rem; 
+            color: #eee;
+        }
+
+        /* Grilla de Productos */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 0 15px 25px;
+        }
+
+        .card {
+            background: var(--gris-oscuro);
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        /* Ajuste de imágenes (Cambio 3) */
+        .card-img-container {
+            height: 140px;
+            background: #111; /* Fondo oscuro para las imágenes */
+            display: flex;
+            align-items: flex-end; /* Alinea el producto hacia abajo */
+            justify-content: center;
+        }
+        
+        .card img {
+            width: 100%;
+            height: 100%;
+            /* 'contain' asegura que toda la imagen se vea sin recortar, alejando el producto */
+            object-fit: contain; 
+            padding: 5px;
+        }
+
+        .card-info {
+            padding: 12px 5px;
+            background: #222;
+            color: var(--blanco);
+            border-top: 2px solid var(--negro);
+        }
+
+        .card-info h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Botón de Domicilio (Cambio 4) */
+        .btn-container {
+            padding: 10px 15px 25px;
+        }
+
+        .btn-domicilio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 18px;
+            background-color: var(--amarillo);
+            color: var(--negro);
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+            transition: transform 0.2s;
+        }
+        
+        .btn-domicilio:active {
+            transform: scale(0.98);
+        }
+
+        .btn-domicilio i { 
+            margin-right: 15px; 
+            font-size: 1.6rem;
+        }
+
+        /* Navbar Inferior */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--negro);
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-top: 3px solid var(--amarillo);
+            z-index: 100;
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #666;
+            font-size: 1.4rem;
+            text-decoration: none;
+        }
+
+        .nav-item.active { 
+            color: var(--amarillo); 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="main-title">Krokan<br>Broaster</h1>
+    </header>
+
+    <div class="hero-banner">
+        La sazón de KROKAN nunca falla, ¡PIDAMOS!
+    </div>
+
+    <h2 class="main-section-title">Categorías populares</h2>
+
+    <div class="section-header">
+        <h3>Platos y Especiales</h3>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://media.discordapp.net/attachments/1461594379855859752/1467990813085532416/image.png?ex=6982647b&is=698112fb&hm=e1933373d1d053d80b320e0aa4bb1a850799573ee063fdd559cf5cd401ea1ff2&=&format=webp&quality=lossless" alt="Costillitas">
+            </div>
+            <div class="card-info"><h4>COSTILLITAS BBQ</h4></div>
+        </div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://media.discordapp.net/attachments/1461594379855859752/1467991003372720303/image.png?ex=698264a9&is=69811329&hm=89f991cddfc992ac7c1065adb481b507836d10b3e30e0e1cd49b248af5ce7288&=&format=webp&quality=lossless" alt="Churrasco">
+            </div>
+            <div class="card-info"><h4>CHURRASCO ESPECIAL</h4></div>
+        </div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://media.discordapp.net/attachments/1461594379855859752/1467991134411296778/image.png?ex=698264c8&is=69811348&hm=03207d3c27b9c2d556feb5241edad67c3ebcb3ece6bb3fec83c9d6ea87d7c39e&=&format=webp&quality=lossless" alt="Pechuga">
+            </div>
+            <div class="card-info"><h4>PECHUGA PLANCHA</h4></div>
+        </div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://cdn.discordapp.com/attachments/1461594379855859752/1467991559529173144/image.png?ex=6982652d&is=698113ad&hm=6df595f886f3aae5d4ce0e7f112ea12255de55ff2825c7874f1118d0b90da9b8&" alt="Arroz">
+            </div>
+            <div class="card-info"><h4>ARROZ VALENCIANA</h4></div>
+        </div>
+    </div>
+
+    <div class="section-header">
+        <h3>Comida Rápida</h3>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://media.discordapp.net/attachments/1461594379855859752/1467993918166663435/image.png?ex=69826760&is=698115e0&hm=6c86ef3ff979b951644975dde111f36b3d96ab12ddf93c493c01f702d357d1c8&=&format=webp&quality=lossless" alt="Krokan Doble">
+            </div>
+            <div class="card-info"><h4>HAMBURGUESA KROKAN DOBLE CARNE</h4></div>
+        </div>
+         <div class="card">
+            <div class="card-img-container">
+                <img src="https://cdn.discordapp.com/attachments/1461594379855859752/1467994161918771505/image.png?ex=6982679a&is=6981161a&hm=14ab1479ca68ca97f5e57c5ce18b51e0eb9365aa1be7186cb533a0a5930bac05&" alt="Sencilla">
+            </div>
+            <div class="card-info"><h4>HB. SENCILLA</h4></div>
+        </div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://media.discordapp.net/attachments/1461594379855859752/1467994099121389659/image.png?ex=6982678b&is=6981160b&hm=5a6eaab4eb3208cb1223234f252c4bf46069918c9b4d07b2936715233853aa91&=&format=webp&quality=lossless" alt="Especial">
+            </div>
+            <div class="card-info"><h4>HB. ESPECIAL</h4></div>
+        </div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://cdn.discordapp.com/attachments/1461594379855859752/1467994261218660613/image.png?ex=698267b1&is=69811631&hm=5bc1cfb5beca911c7c0eadc9620f7566f334ad767d23863a84e87cd021beae75&" alt="Super">
+            </div>
+            <div class="card-info"><h4>SUPER ESPECIAL</h4></div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="#" class="btn-domicilio">
+            <i class="fas fa-motorcycle"></i>
+            PEDIR DOMICILIO AHORA
+        </a>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="far fa-calendar-alt"></i>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="#" class="nav-item">
+             <i class="far fa-user-circle"></i>
+        </a>
+    </nav>
+
+</body>
+</html>
